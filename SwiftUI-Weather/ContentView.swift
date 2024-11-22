@@ -10,30 +10,13 @@ import SwiftUI
 struct ContentView: View {
     var body: some View {
         ZStack {
-            LinearGradient(gradient: Gradient(colors: [.blue, .white]),
-                           startPoint: .top,
-                           endPoint: .bottom)
-                .edgesIgnoringSafeArea(.all)
+            backGroundView(topColor: .blue, bottomColor: Color("secondColor"))
+            
             VStack {
-                Text("Belo Horizonte, MG")
-                    .font(.system(size:32, weight: .medium, design: .default))
-                    .foregroundColor(.white)
-                    .bold()
-                    .padding()
-                VStack(spacing: 8){
-                    Image(systemName: "cloud.sun.fill")
-                        .renderingMode(.original)
-                        .resizable()
-                        .aspectRatio(contentMode: .fit)
-                        .frame(width: 180, height: 180)
-                    
-                    Text("26°")
-                        .font(.system(size: 70, weight: .medium))
-                        .foregroundColor(.white)
-                    
-                        
-                }
-                .padding(.bottom, 40)
+                
+                cityTextView(cityName: "Belo Horizonte - MG")
+                mainWetherView(imageName: "cloud.sun.fill", temperatura: 26)
+                
                 HStack(spacing: 30) {
                     WeatherDayView(diaDaSemana: "TUE", imageName: "sun.max.fill", temperatura: 26)
                     WeatherDayView(diaDaSemana: "WED", imageName: "cloud.sun.fill", temperatura: 20)
@@ -61,26 +44,3 @@ struct ContentView: View {
     ContentView()
 }
 
-struct WeatherDayView: View {
-    
-    var diaDaSemana : String
-    var imageName : String
-    var temperatura : Int
-    
-    var body: some View {
-        VStack(spacing: 10) {
-            Text(diaDaSemana)
-                .font(.system(size: 16, weight: .medium, design: .default))
-                .foregroundColor(.white)
-            Image(systemName: imageName)
-                .renderingMode(.original)
-                .resizable()
-                .aspectRatio(contentMode: .fit)
-                .frame(width: 40, height: 40)
-            Text("\(temperatura)°")
-                .font(.system(size: 28, weight: .medium))
-                .foregroundColor(.white)
-                .bold()
-        }
-    }
-}
