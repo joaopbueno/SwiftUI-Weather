@@ -36,4 +36,4 @@ Certifique-se de ter os seguintes itens instalados antes de começar:
 
 1. Clone este repositório:
    ```bash
-   git clone https://github.com/usuario/MySwiftUIApp.git
+   git clone https://github.com/joaopbueno/SwiftUI-Weather.git
